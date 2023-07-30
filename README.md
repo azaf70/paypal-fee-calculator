@@ -2,7 +2,7 @@
 
 A modern and responsive PayPal calculator app. This app allows users to calculate the PayPal fees and the final amounts for transactions within the UK.
 
-![App Screenshot](screenshot.png)
+![App Screenshot](app-screenshot.png)
 
 ## Features
 
