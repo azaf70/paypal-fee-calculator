@@ -1,5 +1,5 @@
 <template>
-    <div>Paypal fee calculator</div>
+    <div>Paypal fee calculator - Uk only</div>
 </template>
 
 <script setup>
