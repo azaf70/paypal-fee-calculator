@@ -1,16 +1,13 @@
 <template>
     <div class="bg-gradient-to-r from-blue-300 to-purple-400 min-h-screen flex items-center justify-center">
         <Head title="Paypal fee calculator" />
-
         <div class="max-w-lg bg-white rounded-lg shadow-lg p-6 mx-8">
-            <h1 class="text-3xl font-bold mb-4 text-center">PayPal Calculator App (UK Only)</h1>
-            <div>
+            <h1 class="text-3xl font-bold mb-4">PayPal Calculator App UK Only 🇬🇧</h1>
+            <div class="transition-all ease-in-out duration-700">
                 <h2 class="text-xl font-bold mb-4">Buyer Sends You (in GBP)</h2>
                 <input v-model="buyerAmount" type="number" class="border p-2 rounded-md w-full" />
-                <div v-if="buyerAmount >= 0">
-                    <div class="mt-4">
-                        <strong>You Receive:</strong> <span class="text-green-800 font-bold">£{{ calculateTotalToReceive() }}</span>
-                    </div>
+                <div v-if="!_.isNull(buyerAmount) && buyerAmount > 0" class="mt-4">
+                    <strong>You Receive:</strong> <span class="text-green-800 font-bold">£{{ calculateTotalToReceive() }}</span>
                 </div>
             </div>
             <div class="mt-3 bg-gray-100 p-6 rounded-lg">
@@ -24,7 +21,8 @@
 
 <script setup>
 import { Head } from "@inertiajs/vue3";
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
+import _ from 'lodash';
 
 // PayPal fees for transactions within the UK
 const sellerFeePercentage = 2.9;
@@ -47,23 +45,5 @@ const calculateTotalToReceive = () => {
 };
 </script>
 
-<style>
-/* Custom styles (Tailwind CSS classes) */
-.bg-gray-50 {
-    background-color: #f9fafb;
-}
-
-.container {
-    max-width: 600px;
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-    appearance: none;
-    margin: 0;
-}
-
-input[type="number"] {
-    -moz-appearance: textfield;
-}
+<style scoped>
 </style>
